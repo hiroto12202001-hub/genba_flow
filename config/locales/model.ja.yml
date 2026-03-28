@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      site:
+        name: "現場名"
+        address: "住所"
+        start_date: "開始日"
+        end_date: "終了日"

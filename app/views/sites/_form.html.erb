@@ -1,0 +1,27 @@
+<%= form_with(model: site, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, class: "form-control" %>
+  </div>
+  
+  <div class="actions mt-3">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

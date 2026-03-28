@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sites.each do |site| %>
+      <tr>
+        <td><%= link_to site.name, site %></td>
+        <td><%= site.address %></td>
+        <td><%= site.start_date %></td>
+        <td><%= site.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
