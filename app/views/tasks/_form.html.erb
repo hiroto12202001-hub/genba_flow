@@ -1,0 +1,17 @@
+<%= form_with model: site_section, url: site_section_tasks_path(site_section), local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+    <h3>tasks</h3>
+    <div id="tasks-container">
+      <%= f.fields_for :tasks do |task_fields| %>
+        <%= render 'task_fields', f: task_fields %>
+      <% end %>
+    </div>
+  <div id="tasks" class="mb-3">
+    <%= link_to_add_association "＋", f, :tasks, class: "btn btn-secondary mb-2" %>
+  </div>
+
+  <div class="actions mt-3">
+    <%= f.submit "この内容で登録する", class: "btn btn-primary" %>
+  </div>
+<% end %>

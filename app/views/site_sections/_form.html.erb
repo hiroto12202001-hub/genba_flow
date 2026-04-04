@@ -1,0 +1,18 @@
+<%= form_with model: site, url: site_site_sections_path(site), local: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+
+    <h3>Site Sections</h3>
+    <div id="site-sections-container">
+      <%= f.fields_for :site_sections do |section_fields| %>
+        <%= render 'site_section_fields', f: section_fields %>
+      <% end %>
+    </div>
+  <div id="site-sections" class="mb-3">
+    <%= link_to_add_association "現場工区を追加", f, :site_sections, class: "btn btn-secondary mb-2" %>
+  </div>
+
+  <div class="actions mt-3">
+    <%= f.submit "この内容で登録する", class: "btn btn-primary" %>
+  </div>
+<% end %>

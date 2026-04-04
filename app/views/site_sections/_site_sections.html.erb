@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% site_sections.each do |site_section| %>
+      <tr>
+        <td><%= site_section.section_name %></td>
+        <td><%= link_to "Show", site_section_path(site_section), class: "btn btn-primary btn-sm" %></td>  
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'site_sections/site_section_info', site_section: @site_section %>
+  </div>
+  <div class="col-md-8">
+    <%= link_to "タスクの編集", edit_site_section_tasks_path(@site_section), class: "btn btn-warning" %>
+    <div class="mt-4">
+      <% if @site_section.tasks.any? %>
+        <%= render 'tasks/tasks', tasks: @site_section.tasks %>
+      <% else %>
+        <h3 class="mb-3">タスクが登録されていません。</h3>
+        <p>「タスクの編集」からタスクを登録してください。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

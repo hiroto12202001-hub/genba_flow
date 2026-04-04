@@ -1,23 +1,16 @@
-<h1>現場詳細</h1>
-
-<p>
-  <strong>Name:</strong>
-  <%= @site.name %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @site.address %>
-</p>
-<p>
-  <strong>Start Date:</strong>
-  <%= @site.start_date %>
-</p>
-<p>
-  <strong>End Date:</strong>
-  <%= @site.end_date %>
-</p>
-
-<% if user_signed_in? && current_user == @site.user %>
-  <%= link_to "Edit", edit_site_path(@site), class: "btn btn-secondary btn-sm" %>
-  <%= link_to "Delete", @site, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'sites/site_info', site: @site %>
+  </div>
+  <div class="col-md-8">
+    <%= link_to "現場工区の編集", edit_site_site_sections_path(@site), class: "btn btn-warning" %>
+    <div class="mt-4">
+      <% if @site.site_sections.any? %>
+        <%= render 'site_sections/site_sections', site_sections: @site.site_sections %>
+      <% else %>
+        <h3 class="mb-3">現場工区が登録されていません。</h3>
+        <p>「現場工区の編集」から工区を登録してください。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

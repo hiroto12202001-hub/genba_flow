@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :site_section_id, value: @site_section.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+  <%= f.text_area :description, class: "form-control", placeholder: "description" %>
+  <%= f.number_field :importance, class: "form-control", in: 1..5, step: 1 %>
+  <%= f.number_field :urgency, class: "form-control", in: 1..5, step: 1 %>
+  <%= f.date_field :start_time, class: "form-control" %>
+  <%= f.date_field :end_time, class: "form-control" %>
+  <%= f.number_field :status, class: "form-control", in: 1..3, step: 1 %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to_remove_association "このタスクを削除する", f %>
+</div>

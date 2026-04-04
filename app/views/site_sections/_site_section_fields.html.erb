@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :site_id, value: @site.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :_destroy %>
+  <div class="row mb-2"> 
+    <div class="col-sm-8">
+      <%= f.text_field :section_name, class: "form-control", placeholder: "--現場工区名を記入してください--" %>
+    </div>
+    <div class="col-sm-4">
+      <%= link_to_remove_association "削除", f, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
