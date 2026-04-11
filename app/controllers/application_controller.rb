@@ -14,4 +14,16 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def reject_non_admin
+    unless current_user.admin?
+      redirect_to root_path, alert: "管理者以外はアクセスできません。"
+    end
+  end
+
+  def reject_non_site_manager
+    unless current_user.site_manager? || current_user.admin?
+      redirect_to root_path, alert: "現場管理者以外はアクセスできません。"
+    end
+  end
 end

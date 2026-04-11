@@ -1,4 +1,11 @@
-<h1>Sites#index</h1>
-<p>Find me in app/views/sites/index.html.erb</p>
-
-<%= render 'sites/sites', sites: @sites %>
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to "すべての現場", sites_path, class: "btn btn-outline-primary btn-block" %>
+    <%= link_to "管理者になっている現場", admin_sites_path, class: "btn btn-outline-primary btn-block mt-2" %>
+    <%= link_to "編集者になっている現場", editor_sites_path, class: "btn btn-outline-primary btn-block mt-2" %>
+  </div>
+  <div class="col-md-9">
+    <h2><%= @page_title %></h2>
+    <%= render 'sites/sites', sites: @sites %>
+  </div>
+</div>

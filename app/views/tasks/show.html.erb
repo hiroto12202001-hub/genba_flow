@@ -1,21 +1,42 @@
-<h1><%= @task.title %></h1>
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-<p>
-  <strong>Importance:</strong>
-  <%= @task.importance %>
-</p>
-<p>
-  <strong>Urgency:</strong>
-  <%= @task.urgency %>
-</p>
-<p>
-  <strong>Start Time:</strong>
-  <%= @task.start_time %>
-</p>
-<p>
-  <strong>End Time:</strong>
-  <%= @task.end_time %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'site_sections/site_section_info', site_section: @task.site_section %>
+  </div>
+  <div class="col-md-8">
+    <h2>タスク詳細</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>title</th>
+          <td><%= @task.title %></td>
+        </tr>
+        <tr>
+          <th>description</th>
+          <td><%= @task.description %></td>
+        </tr>
+        <tr>
+          <th>importance</th>
+          <td><%= @task.importance_i18n %></td>
+        </tr>
+        <tr>
+          <th>urgency</th>
+          <td><%= @task.urgency_i18n %></td>
+        </tr>
+        <tr>
+          <th>start_time</th>
+          <td><%= l @task.start_time, format: :date %></td>
+        </tr>
+        <tr>
+          <th>end_time</th>
+          <td><%= l @task.end_time, format: :date %></td>
+        </tr>
+        <tr>
+          <th>status</th>
+          <td><%= @task.status_i18n %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <%= link_to 'タスク一覧にもどる', site_section_path(@task.site_section), class: 'btn btn-secondary' %>
+  </div>
+</div>

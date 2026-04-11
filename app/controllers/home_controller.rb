@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-    @sites = Site.all
+    redirect_to sites_path if user_signed_in?
   end
 
   def about

@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
   resources :sites do
     resource :site_sections, only: [:edit, :update]
+    resource :site_members, only: [:edit, :update]
+    collection do
+      get :admin_index, as: :admin
+      get :editor_index, as: :editor
+    end
   end
+  resources :site_members, only: [:index]
   resources :site_sections, only: [:show] do
     resource :tasks, only: [:edit, :update]
   end

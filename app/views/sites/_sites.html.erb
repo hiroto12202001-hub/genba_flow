@@ -1,10 +1,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Start Date</th>
-      <th>End Date</th>
+      <th>現場名</th>
+      <th>住所</th>
+      <th>開始日</th>
+      <th>終了日</th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +12,8 @@
       <tr>
         <td><%= link_to site.name, site %></td>
         <td><%= site.address %></td>
-        <td><%= site.start_date %></td>
-        <td><%= site.end_date %></td>
+        <td><%= l(site.start_date, format: :date) %></td>
+        <td><%= l(site.end_date, format: :date) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,23 +1,28 @@
-<h1>現場詳細</h1>
+<h2>現場情報</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= site.name %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= site.address %>
-</p>
-<p>
-  <strong>Start Date:</strong>
-  <%= site.start_date %>
-</p>
-<p>
-  <strong>End Date:</strong>
-  <%= site.end_date %>
-</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>現場名</th>
+      <td><%= site.name %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= site.address %></td>
+    </tr>
+    <tr>
+      <th>開始日</th>
+      <td><%= l(site.start_date, format: :date) %></td>
+    </tr>
+    <tr>
+      <th>終了日</th>
+      <td><%= l(site.end_date, format: :date)  %></td>
+    </tr>
+  </tbody>
+</table>
 
-<% if user_signed_in? %>
-  <%= link_to "Edit", edit_site_path(site), class: "btn btn-secondary btn-sm" %>
-  <%= link_to "Delete", site, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+<% if user_signed_in? && current_user.admin?(site) %>
+  <%= link_to "編集", edit_site_path(site), class: "btn btn-secondary btn-sm" %>
+  <%= link_to "削除", site, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+  <%= link_to "メンバーを招待", edit_site_site_members_path(site), class: "btn btn-success btn-sm" %>
 <% end %>

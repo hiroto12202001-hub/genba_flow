@@ -3,7 +3,20 @@ class SitesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
+    @page_title = "すべての現場"
     @sites = Site.all
+  end
+
+  def admin_index
+    @page_title = "管理者になっている現場"
+    @sites = current_user.admin_sites
+    render :index
+  end
+
+  def editor_index
+    @page_title = "編集者になっている現場"
+    @sites = current_user.editor_sites
+    render :index
   end
 
   def show

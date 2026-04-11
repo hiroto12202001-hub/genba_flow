@@ -3,7 +3,7 @@
     <%= render 'sites/site_info', site: @site %>
   </div>
   <div class="col-md-8">
-    <%= link_to "現場工区の編集", edit_site_site_sections_path(@site), class: "btn btn-warning" %>
+    <h2>現場工区一覧</h2>
     <div class="mt-4">
       <% if @site.site_sections.any? %>
         <%= render 'site_sections/site_sections', site_sections: @site.site_sections %>
@@ -12,5 +12,6 @@
         <p>「現場工区の編集」から工区を登録してください。</p>
       <% end %>
     </div>
+      <%= link_to "現場工区の編集", edit_site_site_sections_path(@site), class: "btn btn-warning my-4" %>
   </div>
 </div>

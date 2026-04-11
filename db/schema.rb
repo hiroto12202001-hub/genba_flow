@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_03_29_143852) do
+ActiveRecord::Schema.define(version: 2026_04_04_130958) do
+
+  create_table "site_members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "site_id", null: false
+    t.integer "role", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["site_id"], name: "index_site_members_on_site_id"
+    t.index ["user_id", "site_id"], name: "index_site_members_on_user_id_and_site_id", unique: true
+    t.index ["user_id"], name: "index_site_members_on_user_id"
+  end
 
   create_table "site_sections", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -62,6 +73,8 @@ ActiveRecord::Schema.define(version: 2026_03_29_143852) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "site_members", "sites"
+  add_foreign_key "site_members", "users"
   add_foreign_key "site_sections", "sites"
   add_foreign_key "site_sections", "users"
   add_foreign_key "sites", "users"

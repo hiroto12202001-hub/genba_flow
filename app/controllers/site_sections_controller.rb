@@ -1,9 +1,10 @@
 class SiteSectionsController < ApplicationController
   before_action :set_site, only: [:edit, :update]
+  before_action :reject_non_site_manager, only: [:edit, :update]
 
   def edit
     @site.site_sections.build if @site.site_sections.empty?
-  end
+  end 
 
   def update
     if @site.update(nested_site_section_params)

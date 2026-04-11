@@ -1,9 +1,20 @@
-<h1><%= site_section.site.name %></h1>
-<h2>工区詳細</h2>
+<h2>セクション情報</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= site_section.section_name %>
-</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>セクション名</th>
+      <td><%= site_section.section_name %></td>
+    <tr>
+      <th>現場名</th>
+      <td><%= site_section.site.name %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= site_section.site.address %></td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
 
-<%= link_to "戻る", site_section.site, class: "btn btn-secondary" %>
+<%= link_to "現場に戻る", site_section.site, class: "btn btn-secondary" %>

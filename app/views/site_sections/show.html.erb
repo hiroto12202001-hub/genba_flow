@@ -3,7 +3,7 @@
     <%= render 'site_sections/site_section_info', site_section: @site_section %>
   </div>
   <div class="col-md-8">
-    <%= link_to "タスクの編集", edit_site_section_tasks_path(@site_section), class: "btn btn-warning" %>
+    <h2>タスク一覧</h2>
     <div class="mt-4">
       <% if @site_section.tasks.any? %>
         <%= render 'tasks/tasks', tasks: @site_section.tasks %>
@@ -12,5 +12,7 @@
         <p>「タスクの編集」からタスクを登録してください。</p>
       <% end %>
     </div>
+    <%= link_to "タスクの編集", edit_site_section_tasks_path(@site_section), 
+      class: "btn btn-warning my-4" %>
   </div>
 </div>

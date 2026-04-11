@@ -67,3 +67,4 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'cocoon'
+gem 'enum_help'

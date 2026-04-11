@@ -1,7 +1,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>名前</th>
       <th></th>
     </tr>
   </thead>
@@ -9,7 +9,7 @@
     <% tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
-        <td><%= link_to "Show", task_path(task), class: "btn btn-primary btn-sm" %></td>  
+        <td><%= link_to "表示", task_path(task), class: "btn btn-primary btn-sm" %></td>  
       </tr>
     <% end %>
   </tbody>

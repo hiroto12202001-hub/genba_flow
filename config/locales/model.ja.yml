@@ -6,3 +6,25 @@ ja:
         address: "住所"
         start_date: "開始日"
         end_date: "終了日"
+      task:
+        title: "タスク名"
+        description: "概要"
+        start_time: "開始日時"
+        end_time: "終了日時"
+        importance: "重要度"
+        urgency: "緊急度"
+        status: "ステータス"
+  enums:
+    task:
+      importance:
+        low_importance: "低"
+        medium_importance: "中"
+        high_importance: "高"
+      urgency:
+        low_urgency: "低"
+        medium_urgency: "中"
+        high_urgency: "高"
+      status:
+        pending: "未着手"
+        in_progress: "進行中"
+        completed: "完了"

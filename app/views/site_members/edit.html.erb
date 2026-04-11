@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'sites/site_info', site: @site %>
+  </div>
+  <div class="col-md-8">
+    <h2>SiteMembers Invite</h2>
+
+    <%= form_with model: @site, url: site_site_members_path(@site) do |f| %>
+      <div class="field">
+        <%= f.label :site_member_ids, "invite members" %>
+        <div class="row">
+          <%= f.collection_check_boxes(:member_ids, User.all, :id, :name) do |b| %>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+              <span class="mr-2"><%= b.check_box %></span>
+              <span><%= b.label %>(<%= b.object.email %>)</span>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Invite SiteMembers" %>
+      </div>
+    <% end %>
+  </div>
+</div>
