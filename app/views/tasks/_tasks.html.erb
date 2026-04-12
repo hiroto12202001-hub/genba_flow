@@ -14,7 +14,13 @@
       <tr>
         <td><%= link_to task.title, task_path(task) %></td>
         <td><%= l task.start_time, format: :date %></td>
-        <td><%= l task.end_time, format: :date %></td>
+        <td>
+          <% if task.end_time.present? %>
+            <%= l task.end_time, format: :date %>
+          <% else %>
+            未設定
+          <% end %>
+        </td>
         <td><%= task.importance_i18n %></td>
         <td><%= task.urgency_i18n %></td>
         <td><%= task.status_i18n %></td>

@@ -28,7 +28,13 @@
         </tr>
         <tr>
           <th>end_time</th>
-          <td><%= l @task.end_time, format: :date %></td>
+          <td>
+            <% if @task.end_time.present? %>
+              <%= l @task.end_time, format: :date %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th>status</th>
