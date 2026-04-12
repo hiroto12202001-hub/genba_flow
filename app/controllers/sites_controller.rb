@@ -21,6 +21,12 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
+    @site_sections = @site.site_sections.includes(:tasks)
+  end
+
+  def tasks
+    @site = Site.find(params[:id])
+    @tasks = Task.joins(site_section: :site).where(sites: { id: @site.id })
   end
 
   def new

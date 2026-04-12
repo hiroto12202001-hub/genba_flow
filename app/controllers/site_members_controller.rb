@@ -1,6 +1,6 @@
 class SiteMembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_site, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
   end
@@ -22,7 +22,10 @@ class SiteMembersController < ApplicationController
     params.require(:site).permit(member_ids: [])
   end
 
-  def set_site
-    @site = Site.find(params[:site_id])
+  def correct_user
+    @site = Site.find_by(id: params[:site_id])
+    if !@site || !(current_user.admin?(@site) || current_user.editor?(@site))
+      redirect_to root_path, alert: 'You are not authorized to access this page.'
+    end 
   end
 end

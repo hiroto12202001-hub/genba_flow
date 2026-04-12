@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def editor?(site)
     site_member = site.site_members.find_by(user: self)
-    site_member && site_member.role.to_sym == :editor
+    site_member && site_member.role.to_sym == :member
   end
   
   def owner?(site)
@@ -28,6 +28,6 @@ class User < ApplicationRecord
   end
 
   def editor_sites
-    Site.joins(:site_members).where(site_members: { user_id: id, role: :editor })
+    Site.joins(:site_members).where(site_members: { user_id: id, role: :member })
   end
 end

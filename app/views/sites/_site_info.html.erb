@@ -21,8 +21,19 @@
   </tbody>
 </table>
 
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "現場工区一覧", site_path(site), class: "btn btn-outline-info btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "タスク一覧", tasks_site_path(site), class: "btn btn-outline-info btn-block" %>
+  </div>
+</div>
+
 <% if user_signed_in? && current_user.admin?(site) %>
   <%= link_to "編集", edit_site_path(site), class: "btn btn-secondary btn-sm" %>
   <%= link_to "削除", site, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+<% end %>
+<% if user_signed_in? && (current_user.admin?(site) || current_user.editor?(site)) %>
   <%= link_to "メンバーを招待", edit_site_site_members_path(site), class: "btn btn-success btn-sm" %>
 <% end %>

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :sites do
     resource :site_sections, only: [:edit, :update]
     resource :site_members, only: [:edit, :update]
+    member do
+      get :tasks
+    end
     collection do
       get :admin_index, as: :admin
       get :editor_index, as: :editor
@@ -15,7 +18,7 @@ Rails.application.routes.draw do
   resources :site_sections, only: [:show] do
     resource :tasks, only: [:edit, :update]
   end
-  resources :tasks, only: [:show]
+  resources :tasks, only: [:index, :show]
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,12 +1,14 @@
 <div class="row">
   <div class="col-md-4">
     <%= render 'sites/site_info', site: @site %>
+    <h2 class="mt-4">現場担当者一覧</h2>
+    <%= render 'users/users', users: @site.members %>
   </div>
   <div class="col-md-8">
     <h2>現場工区一覧</h2>
     <div class="mt-4">
-      <% if @site.site_sections.any? %>
-        <%= render 'site_sections/site_sections', site_sections: @site.site_sections %>
+      <% if @site_sections.any? %>
+        <%= render 'site_sections/site_sections', site_sections: @site_sections %>
       <% else %>
         <h3 class="mb-3">現場工区が登録されていません。</h3>
         <p>「現場工区の編集」から工区を登録してください。</p>
