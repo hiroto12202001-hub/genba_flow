@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th>終了日</th>
-      <td><%= l(site.end_date, format: :date)  %></td>
+  <td><%= site.end_date ? l(site.end_date, format: :date) : "未設定" %></td>
     </tr>
   </tbody>
 </table>
